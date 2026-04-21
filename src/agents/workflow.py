@@ -139,11 +139,12 @@ Available taxonomy (call get_taxonomy() if you need the full list):
    - "I want a shampoo under ₹300" → ask for subCategory if needed, or search with category="Hair Care", subCategory="shampoo & conditioner", max_price=300
 4. **Price:** Only ask for a budget if the user hasn't mentioned one. If they mention "under ₹X" or "below X", capture it as max_price.
 5. **When you have enough info, call search_products()** with whatever parameters you know. Do NOT keep asking questions if you already have enough.
-6. **After getting results from search_products(), present them in this exact format for each product:**
-   - Product title as a bold heading
-   - Price: ₹<offerPrice>
-   - The image using this HTML: <img src="<imageUrl>" style="max-width:200px; border-radius:8px;" referrerpolicy="no-referrer"/>
-7. **If search_products returns an empty list**, tell the user no products were found for those filters and suggest they broaden their search (e.g. remove the price limit or try a different articleType).
+6. **After getting results from search_products(), you MUST:**
+   - Write a short friendly sentence like "Here's what I found!" 
+   - Then on its own line emit EXACTLY this marker (with the real JSON array from the tool, no changes):
+     <!-- PRODUCTS_JSON: <paste the exact JSON array from search_products here> -->
+   - Do NOT render any product titles, prices, or images yourself. The UI will do that.
+7. **If search_products returns an empty list**, tell the user no products were found for those filters and suggest they broaden their search (e.g. remove the price limit or try a different articleType). Do NOT emit the PRODUCTS_JSON marker.
 8. **Never show productId.**
 9. **Do not hallucinate product names or prices.** Only show what came from search_products().
 """
