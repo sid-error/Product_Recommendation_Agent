@@ -22,7 +22,7 @@ except ImportError:
 mcp = FastMCP("Sales Catalog Server")
 
 # Load data into a DataFrame at startup
-csv_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "data", "product_info.csv"))
+csv_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "product_info.csv"))
 try:
     df = pd.read_csv(csv_path)
     if 'productId' in df.columns:

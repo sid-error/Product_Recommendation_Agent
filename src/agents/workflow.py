@@ -9,7 +9,7 @@ from google.adk.agents import LlmAgent
 # Data layer — loaded once at import time
 # ---------------------------------------------------------------------------
 _csv_path = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "..", "data", "product_info.csv")
+    os.path.join(os.path.dirname(__file__), "..", "data", "product_info.csv")
 )
 try:
     _df = pd.read_csv(_csv_path)

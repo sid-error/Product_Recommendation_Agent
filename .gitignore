@@ -3,5 +3,5 @@ __pycache__/
 *.pyc
 .env
 .pytest_cache/
-data/product_info.csv
+src/data/product_info.csv
 .streamlit/
